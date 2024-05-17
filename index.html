@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            padding: 5px;
+            width: 50px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1em;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gem Calculator</h1>
+        
+        <div class="input-group">
+            <label for="greenChip">Green Chip Gems:</label>
+            <input type="number" id="greenChip" value="0" min="0" oninput="calculateGreenChips()">
+        </div>
+        
+        <div class="input-group">
+            <label for="blueFlawed">Blue Flawed Gems:</label>
+            <input type="number" id="blueFlawed" value="0" min="0" oninput="calculateGreenChips()">
+        </div>
+        
+        <div class="input-group">
+            <label for="purpleGem">Purple Gems:</label>
+            <input type="number" id="purpleGem" value="0" min="0" oninput="calculateGreenChips()">
+        </div>
+
+        <div id="result">
+            Green Chips Needed: 27
+        </div>
+    </div>
+
+    <script>
+        function calculateGreenChips() {
+            const greenChipInput = parseInt(document.getElementById('greenChip').value) || 0;
+            const blueFlawedInput = parseInt(document.getElementById('blueFlawed').value) || 0;
+            const purpleGemInput = parseInt(document.getElementById('purpleGem').value) || 0;
+            
+            const greenChipsNeeded = 27 - greenChipInput - (3 * blueFlawedInput) - (9 * purpleGemInput);
+            
+            document.getElementById('result').textContent = `Green Chips Needed: ${greenChipsNeeded}`;
+        }
+    </script>
+
+</body>
+</html>
